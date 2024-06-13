@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface MatchRepository extends MongoRepository<Match, String> {
-    List<Match> findByUserId1OrUserId2(String userId1, String userId2);
+    List<Match> findByUserId1(String userId1);
     void deleteByUserId1AndUserId2(String userId1,String userId2);
 }

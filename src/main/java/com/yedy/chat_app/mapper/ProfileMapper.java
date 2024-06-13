@@ -3,7 +3,6 @@ package com.yedy.chat_app.mapper;
 import com.yedy.chat_app.dto.ProfileDto;
 import com.yedy.chat_app.entity.Profile;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")

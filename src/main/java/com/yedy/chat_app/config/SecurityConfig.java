@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/test/**", "/auth/**", "/ws/**").permitAll()
+                        .requestMatchers("/test/**", "/auth/**", "/ws/**","/api/test/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .oauth2ResourceServer(oauth -> oauth.opaqueToken(opaq -> opaq.authenticationManager(authManager)));

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -53,11 +54,11 @@ public class TestController {
         Role user = roleRepository.save(createRole(Roles.USER, "Kullanıcı"));
 
         List<Profile> profiles = new ArrayList<>();
-        profiles.add(createProfile(yusuf, "yusuf", 29, Gender.MAN, "test", ""));
-        profiles.add(createProfile(ethem, "ethem", 29, Gender.MAN, "test", ""));
-        profiles.add(createProfile(yasin, "yasin", 29, Gender.MAN, "test", ""));
-        profiles.add(createProfile(dogu, "dogu", 29, Gender.MAN, "test", ""));
-        profiles.add(createProfile(test, "test", 29, Gender.MAN, "test", ""));
+        profiles.add(createProfile(yusuf, "yusuf", "test",new Date(), Gender.MAN, "test", ""));
+        profiles.add(createProfile(ethem, "ethem", "test",new Date(), Gender.MAN, "test", ""));
+        profiles.add(createProfile(yasin, "yasin", "test",new Date(), Gender.MAN, "test", ""));
+        profiles.add(createProfile(dogu, "dogu", "test",new Date(), Gender.MAN, "test", ""));
+        profiles.add(createProfile(test, "test", "test",new Date(), Gender.MAN, "test", ""));
 
         profileRepository.saveAll(profiles);
 
@@ -95,11 +96,12 @@ public class TestController {
         return userRole;
     }
 
-    private Profile createProfile(User user, String name, int age, Gender gender, String bio, String ppUrl) {
+    private Profile createProfile(User user, String name,String surname, Date birthday, Gender gender, String bio, String ppUrl) {
         Profile profile = new Profile();
         profile.setUserId(user.getId());
         profile.setName(name);
-        profile.setAge(age);
+        profile.setSurname(surname);
+        profile.setBirthday(birthday);
         profile.setGender(gender);
         profile.setBio(bio);
         profile.setProfilePhotoUrl(ppUrl);

@@ -1,10 +1,11 @@
 package com.yedy.chat_app.controller;
 
+import com.yedy.chat_app.dto.MatchDto;
+import com.yedy.chat_app.dto.ProfileDto;
 import com.yedy.chat_app.service.MatchService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/match")
@@ -18,4 +19,11 @@ public class MatchController {
     public void deleteMatch(@PathVariable String matchId) {
         matchService.deleteMatch(matchId);
     }
+
+    @GetMapping("/getMatches")
+    public List<MatchDto> getAllMatches() {
+        return matchService.getMatchList();
+    }
+
+
 }
