@@ -15,8 +15,8 @@ import java.util.UUID;
 @Document(collection = "matches")
 public class Match extends BaseEntity {
     @Id
-    private UUID id;
-    private UUID userId1;
-    private UUID userId2;
+    private String id;
+    private String userId1;
+    private String userId2;
     private Date matchedAt;
 }

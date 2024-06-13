@@ -14,10 +14,10 @@ import java.util.UUID;
 @Document(collection = "messages")
 public class Message extends BaseEntity{
     @Id
-    private UUID id;
-    private UUID matchId;
-    private UUID senderId;
-    private UUID receiverId;
+    private String id;
+    private String matchId;
+    private String senderId;
+    private String receiverId;
     private String content;
     private Date sentAt;
 }

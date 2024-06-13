@@ -21,7 +21,7 @@ public class MessageService {
     public List<Message> findAll() {
         return messageRepository.findAll();
     }
-    public Message findById(UUID id) {
+    public Message findById(String id) {
         return messageRepository.findById(id).orElse(null);
     }
 

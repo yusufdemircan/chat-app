@@ -14,9 +14,10 @@ import java.util.UUID;
 @Document(collection = "users")
 public class User extends BaseEntity {
     @Id
-    private UUID id;
+    private String id;
     private String username;
     private String email;
     private String password;
+    private String phoneNumber;
 
 }

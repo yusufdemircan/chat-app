@@ -12,8 +12,8 @@ import java.util.UUID;
 @Document(collection = "locations")
 public class Location extends BaseEntity {
     @Id
-    private UUID id;
-    private UUID userId;
+    private String id;
+    private String userId;
     private double latitude;
     private double longitude;
 

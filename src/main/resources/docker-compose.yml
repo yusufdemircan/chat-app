@@ -1,5 +1,13 @@
 version: '3'
 services:
+  rabbitmq:
+    container_name: 'guide-rabbit'
+    image: 'rabbitmq:latest'
+    environment:
+      - 'RABBITMQ_DEFAULT_PASS=demir'
+      - 'RABBITMQ_DEFAULT_USER=demir'
+    ports:
+      - '5672:5672'
   zookeeper:
     image: 'bitnami/zookeeper:latest'
     container_name: zookeeper

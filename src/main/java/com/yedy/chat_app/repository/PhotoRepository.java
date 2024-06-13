@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface PhotoRepository extends MongoRepository<Photo, UUID> {
-    List<Photo> findByProfileId(UUID profileId);
+public interface PhotoRepository extends MongoRepository<Photo, String> {
+    List<Photo> findByProfileId(String profileId);
 }

@@ -11,6 +11,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
+
 @Controller
 public class ChatController {
     private final KafkaService kafkaService;
@@ -29,7 +31,7 @@ public class ChatController {
     @MessageMapping("/chat")
     @SendTo("/topic/messages")
     public Message sendMessage(Message message) {
-        message.setTimestamp(System.currentTimeMillis());
+        message.setSentAt(new Date());
 
         // Kafka'ya mesaj gönderme
         kafkaService.sendMessage(message.getContent());

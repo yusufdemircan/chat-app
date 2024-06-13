@@ -4,6 +4,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.UUID;
 
-public interface UserRepository extends MongoRepository<User, UUID> {
-    User findByUsername(String username);
+public interface UserRepository extends MongoRepository<User, String> {
+   // User findByUsername(String username);
+    User findByUsernameAndDeletedFalse(String userName);
+
+    User findByEmailAndDeletedFalseAndEmailIsNotNull(String email);
+
+    User findByPhoneNumberAndDeletedFalseAndPhoneNumberIsNotNull(String telNumber);
 }

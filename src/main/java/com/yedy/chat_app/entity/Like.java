@@ -14,9 +14,9 @@ import java.util.UUID;
 @Document(collection = "likes")
 public class Like {
     @Id
-    private UUID id;
-    private UUID likerUserId;
-    private UUID likedProfileId;
+    private String id;
+    private String likerUserId;
+    private String likedProfileId;
     private boolean mutual; // Eşleşme durumu
     private Date likedAt;
 

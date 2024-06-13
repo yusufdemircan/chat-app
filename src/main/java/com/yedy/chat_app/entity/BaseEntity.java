@@ -7,6 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.Date;
 
 public abstract class BaseEntity {
+
+    private boolean deleted;
+
     @CreatedDate
     @Field("created_at")
     private Date createdAt = new Date();

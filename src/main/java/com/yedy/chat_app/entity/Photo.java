@@ -11,7 +11,7 @@ import java.util.UUID;
 @Document(collection = "photos")
 public class Photo extends BaseEntity {
     @Id
-    private UUID id;
-    private UUID profileId;
+    private String id;
+    private String profileId;
     private String url;
 }

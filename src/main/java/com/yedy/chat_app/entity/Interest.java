@@ -11,6 +11,6 @@ import java.util.UUID;
 @Document(collection = "interests")
 public class Interest extends BaseEntity {
     @Id
-    private UUID id;
+    private String id;
     private String name;
 }

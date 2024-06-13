@@ -1,4 +1,6 @@
 package com.yedy.chat_app.controller;
+import com.yedy.chat_app.consts.UserContext;
+import com.yedy.chat_app.dto.LikeDto;
 import com.yedy.chat_app.entity.Like;
 import com.yedy.chat_app.service.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,9 @@ public class LikeController {
         this.likeService = likeService;
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Like>> getUserLikes(@PathVariable UUID userId) {
-        List<Like> userLikes = likeService.getUserLikes(userId);
+    @GetMapping("/getLikes")
+    public ResponseEntity<List<LikeDto>> getUserLikes() {
+        List<LikeDto> userLikes = likeService.getUserLikes(UserContext.getId());
         return new ResponseEntity<>(userLikes, HttpStatus.OK);
     }
 
@@ -32,8 +34,12 @@ public class LikeController {
     }
 
     @PostMapping("/like")
-    public ResponseEntity<String> likeProfile(@RequestParam UUID userId, @RequestParam UUID profileId) {
-        likeService.likeProfile(userId, profileId);
-        return new ResponseEntity<>("Profile liked successfully.", HttpStatus.OK);
+    public ResponseEntity<String> likeProfile(@RequestParam String profileId) {
+        return ResponseEntity.ok(likeService.likeProfile(UserContext.getId(), profileId));
+    }
+
+    @DeleteMapping("/delete/{likeId}")
+    public void deleteLike(@PathVariable String likeId) {
+        likeService.deleteLike(likeId);
     }
 }

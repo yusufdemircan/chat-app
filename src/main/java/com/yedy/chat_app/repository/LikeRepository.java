@@ -5,8 +5,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface LikeRepository extends MongoRepository<Like, UUID> {
-    Like findByLikerUserIdAndLikedProfileId(UUID userId, UUID profileId);
+public interface LikeRepository extends MongoRepository<Like, String> {
+    Like findByLikerUserIdAndLikedProfileId(String userId, String profileId);
     List<Like> findByMutual(boolean isMutual);
-    List<Like> findByLikerUserId(UUID userId);
+    List<Like> findByLikerUserId(String userId);
+    void deleteByLikerUserIdAndLikedProfileId(String userId, String profileId);
 }
